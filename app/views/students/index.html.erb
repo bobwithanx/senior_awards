@@ -1,0 +1,22 @@
+<h1>Listing Students</h1>
+
+<table>
+<tr>
+<th>First</th>
+<th>Last</th>
+<th>ID Number</th>
+<th>Blurb</th>
+<th></th>
+</tr>
+
+<% @students.each do |student| %>
+<tr>
+<td><%= student.firstname %></td>
+<td><%= student.lastname %></td>
+<td><%= student.id_number %></td>
+<td><%= student.blurb %></td>
+<td><%= link_to 'Show', student_path(student) %> | <%= link_to 'Popup', student_path(student), :target => 'student_popup' %></td>
+</tr>
+<% end %>
+</table>
+<%= link_to 'Back', welcome_index_path %>
