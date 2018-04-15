@@ -1,18 +1,22 @@
-<p>
-<strong>First Name:</strong>
-<%= @student.firstname %>
-</p>
-<p>
-<strong>Last Name:</strong>
-<%= @student.lastname %>
-</p>
-<p>
-<strong>ID Number:</strong>
-<%= @student.id_number %>
-</p>
-<p>
-<strong>Blurb:</strong>
-<%= @student.blurb %>
-</p>
+<section class="section">
+  <div class="container">
+    <p>
+      <strong>First Name:</strong>
+      <%= @student.firstname %>
+    </p>
+    <p>
+      <strong>Last Name:</strong>
+      <%= @student.lastname %>
+    </p>
+    <p>
+      <strong>ID Number:</strong>
+      <%= @student.id_number %>
+    </p>
+    <p>
+      <strong>Blurb:</strong>
+      <%= @student.blurb %>
+    </p>
 
-<%= link_to 'Back', students_path %>
+    <%= link_to 'Back', students_path %>
+  </div>
+</section>
