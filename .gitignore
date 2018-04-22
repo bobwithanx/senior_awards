@@ -22,3 +22,6 @@
 
 .byebug_history
 app/assets/images/photos
+.DS_Store
+
+vendor/assets
