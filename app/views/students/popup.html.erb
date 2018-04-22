@@ -20,6 +20,10 @@
             <h2 class="subtitle">
               <%= @student.blurb %>
             </h2>
+            <h2> Clubs </h2>
+            <% @student.clubs.each do |club| %>
+              <%= club.name %> |
+                <% end %>
           </div>
         </div>
       </article>
