@@ -1,3 +1,16 @@
+#student_list .DataTables_sort_icon,
+#student_list .sorting:after,
+#student_list .sorting_asc:after,
+#student_list .sorting_desc:after {
+  display: none !important;
+}
+
+#student_list .sorting,
+#student_list .sorting_asc,
+#student_list .sorting_desc {
+  cursor: text !important;
+}
+
 #popup h1 {
   font-size: 4rem;
   font-size: 5.9vw;
@@ -8,33 +21,26 @@
   max-width: 225px;
 }
 
-div {
+#popup #content div {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
 }
 
-#popup div:first-of-type {
-  /* For increasing performance 
-                       ID/Class should've been used. 
-                       For a small demo 
+#popup #content div:first-of-type {
+  /* For increasing performance
+                       ID/Class should've been used.
+                       For a small demo
                        it's okaish for now */
   animation: showup 7s;
 }
 
-#popup div:last-of-type {
+#popup #content div:last-of-type {
   /* width: 0px; */
   animation: reveal 7s;
 }
 
-/* #popup div:last-of-type span {
-  /* margin-left: -355px; */
-
-/* animation: slidein 7s; */
-
-}
-
-*/ @keyframes showup {
+@keyframes showup {
   0% {
     opacity: 0;
   }

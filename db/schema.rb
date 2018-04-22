@@ -10,13 +10,89 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413211018) do
+ActiveRecord::Schema.define(version: 20180421023919) do
+
+  create_table "awards", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "awards_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "award_id", null: false
+  end
+
+  create_table "clubs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clubs_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "club_id", null: false
+  end
+
+  create_table "cte_programs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cte_programs_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "cte_program_id", null: false
+  end
+
+  create_table "future_plans", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "future_plans_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "future_plan_id", null: false
+  end
+
+  create_table "in_attendances", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "in_attendances_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "in_attendance_id", null: false
+  end
+
+  create_table "scholarships", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scholarships_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "scholarship_id", null: false
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sports_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "sport_id", null: false
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
     t.string "id_number"
-    t.text "blurb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

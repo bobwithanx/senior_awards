@@ -12,4 +12,11 @@
 //
 //= require rails-ujs
 //= require turbolinks
+
+//= require jquery-3.3.1.min.js
+
+//= require jquery.dataTables.js
+//= require dataTables.bulma.js
+//= require jquery_ujs
+
 //= require_tree .
