@@ -23,17 +23,21 @@ div {
   white-space: nowrap;
 }
 
-#popup div:first-of-type {
-  /* For increasing performance
-                       ID/Class should've been used.
-                       For a small demo
-                       it's okaish for now */
-  animation: showup 7s;
+
+#popup article #photo:last-of-type {
+  /* width: 0px; */
+  animation: reveal 3s;
 }
 
-#popup div:last-of-type {
+#popup article .title:last-of-type,
+  #popup article .subtitle:last-of-type {
+    /* width: 0px; */
+  animation: reveal-mid 3s;
+}
+
+#popup article .table {
   /* width: 0px; */
-  animation: reveal 7s;
+  animation: reveal-delay 3s ;
 }
 
 /* #popup div:last-of-type span {
@@ -78,7 +82,53 @@ div {
     opacity: 0;
     /* width: 0px; */
   }
-  20% {
+  100% {
+    opacity: 1;
+    /* width: 0px; */
+  }
+  /* 30% {
+    width: 355px;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 355px;
+  } */
+}
+
+@keyframes reveal-mid {
+  0% {
+    opacity:0;
+  }
+  40% {
+    opacity: 0;
+    /* width: 0px; */
+  }
+  70% {
+    opacity: 1;
+    /* width: 0px; */
+  }
+  /* 30% {
+    width: 355px;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 355px;
+  } */
+}@keyframes reveal-delay {
+  0% {
+    opacity:0;
+  }
+  70% {
+    opacity: 0;
+    /* width: 0px; */
+  }
+  100% {
     opacity: 1;
     /* width: 0px; */
   }
