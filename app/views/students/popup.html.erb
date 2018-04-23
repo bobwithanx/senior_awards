@@ -17,13 +17,47 @@
               <%= @student.firstname %>
                 <%= @student.lastname %>
             </h1>
-            <h2 class="subtitle">
-              <%= @student.blurb %>
-            </h2>
-            <h2> Clubs </h2>
-            <% @student.clubs.each do |club| %>
-              <%= club.name %> |
-                <% end %>
+            <% unless @student.blurb.blank? %>
+              <h2 class="subtitle">
+                <%= @student.blurb %>
+              </h2>
+              <% end %>
+                <table class="table">
+                  <% unless @student.clubs.blank? %>
+                    <tr>
+                      <th class="has-text-right">Clubs</th>
+                      <td>
+                        <%= @student.clubs.order(
+                  :name).map(&:name).join(", ") %>
+                      </td>
+                    </tr>
+                    <% end %>
+                      <% unless @student.cte_programs.blank? %>
+                        <tr>
+                          <th class="has-text-right">CTE Programs</th>
+                          <td>
+                            <%= @student.cte_programs.order(
+                  :name).map(&:name).join(", ") %>
+                          </td>
+                        </tr>
+                        <% end %>
+                          <% unless @student.scholarships.blank? %>
+                            <tr>
+                              <th class="has-text-right">Scholarships</th>
+                              <td>
+                                <%= @student.scholarships.order(
+                  :name).map(&:name).join(", ") %>
+                              </td>
+                            </tr>
+                            <% end %>
+                              <% unless @student.future_plans.blank? %>
+                                <tr>
+                                  <th class="has-text-right">Future Plans</th>
+                                  <td>
+                                    <%= @student.future_plans.map(&:name).join(", ") %>
+                                  </td>
+                                </tr>
+                                <% end %>
           </div>
         </div>
       </article>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180422173409) do
+ActiveRecord::Schema.define(version: 20180423004255) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,39 @@ ActiveRecord::Schema.define(version: 20180422173409) do
   create_table "clubs_students", id: false, force: :cascade do |t|
     t.integer "student_id", null: false
     t.integer "club_id", null: false
+  end
+
+  create_table "cte_programs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cte_programs_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "cte_program_id", null: false
+  end
+
+  create_table "future_plans", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "future_plans_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "future_plan_id", null: false
+  end
+
+  create_table "scholarships", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scholarships_students", id: false, force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "scholarship_id", null: false
   end
 
   create_table "students", force: :cascade do |t|
