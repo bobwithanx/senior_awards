@@ -1,16 +1,18 @@
-<section id="popup" class="hero is-light  is-fullheight">
+<section id="popup" class="hero is-light is-fullheight">
   <div class="hero-head box has-text-centered">
     <h3 class="title">2018 Senior Awards Ceremony</h3>
     <h4 class="subtitle">Metro Tech High School</h4>
   </div>
   <div class="hero-body">
-    <div class="container box">
+    <div class="container box profile">
       <article class="media">
+      <% unless @student.photo.blank? %>
         <figure class="media-left">
           <div id="photo" class="transition image is-3by4">
-            <%= display_image("photos/" + @student.id_number + ".jpg") %>
+            <%= display_image("photos/" + @student.photo) %>
           </div>
         </figure>
+        <% end %>
         <div class="media-content">
           <div class="content">
             <span class="transition-first">
