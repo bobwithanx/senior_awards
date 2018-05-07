@@ -8,56 +8,33 @@
       <article class="media">
         <figure class="media-left">
           <div id="photo" class="transition image is-3by4">
-            <%= image_tag "photos/" + @student.id_number + ".jpg" %>
+            <%= display_image("photos/" + @student.id_number + ".jpg") %>
           </div>
         </figure>
         <div class="media-content">
           <div class="content">
-            <h1 class="title">
-              <%= @student.firstname %>
+            <span class="transition-first">
+              <h1 class="title">
+                <%= @student.firstname %>
                 <%= @student.lastname %>
-            </h1>
-            <% unless @student.blurb.blank? %>
-              <h2 class="subtitle">
-                <%= @student.blurb %>
-              </h2>
+              </h1>
+              <% unless @student.blurb.blank? %>
+                <h2 class="subtitle">
+                  <%= @student.blurb %>
+                </h2>
               <% end %>
-                <table class="table">
-                  <% unless @student.clubs.blank? %>
-                    <tr>
-                      <th class="has-text-right">Clubs</th>
-                      <td>
-                        <%= @student.clubs.order(
-                  :name).map(&:name).join(", ") %>
-                      </td>
-                    </tr>
-                    <% end %>
-                      <% unless @student.cte_programs.blank? %>
-                        <tr>
-                          <th class="has-text-right">CTE Programs</th>
-                          <td>
-                            <%= @student.cte_programs.order(
-                  :name).map(&:name).join(", ") %>
-                          </td>
-                        </tr>
-                        <% end %>
-                          <% unless @student.scholarships.blank? %>
-                            <tr>
-                              <th class="has-text-right">Scholarships</th>
-                              <td>
-                                <%= @student.scholarships.order(
-                  :name).map(&:name).join(", ") %>
-                              </td>
-                            </tr>
-                            <% end %>
-                              <% unless @student.future_plans.blank? %>
-                                <tr>
-                                  <th class="has-text-right">Future Plans</th>
-                                  <td>
-                                    <%= @student.future_plans.map(&:name).join(", ") %>
-                                  </td>
-                                </tr>
-                                <% end %>
+              <h2 class="subtitle">
+                <%= @student.cte_programs.order(:name).map(&:name).join(", ") %>
+              </h2>
+              <hr>
+            </span>
+            <span class="transition-second">
+              <ul class="scholarship-list">
+                <% @student.scholarships.order(:name).each do |scholarship| %>
+                  <li><%= scholarship.name %></li>
+                <% end %>
+              </ul>
+            </span>
           </div>
         </div>
       </article>

@@ -17,25 +17,33 @@
   max-width: 225px;
 }
 
+#popup .scholarship-box {
+  border: maroon solid 1px;
+  border-radius: 6px;
+}
+
 div {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
 }
 
+.scholarship-list {
+  columns: 2;
+  column-gap: 3rem;
+}
 
 #popup article #photo:last-of-type {
   /* width: 0px; */
   animation: reveal 3s;
 }
 
-#popup article .title:last-of-type,
-  #popup article .subtitle:last-of-type {
+#popup article .transition-first * {
     /* width: 0px; */
   animation: reveal-mid 3s;
 }
 
-#popup article .table {
+#popup article .transition-second * {
   /* width: 0px; */
   animation: reveal-delay 3s ;
 }
