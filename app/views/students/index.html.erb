@@ -19,7 +19,7 @@
           <th>First</th>
           <th>Last</th>
           <th>ID Number</th>
-          <th>Blurb</th>
+          <th>CTE Program</th>
           <th></th>
         </tr>
       </thead>
@@ -35,7 +35,7 @@
             <%= student.id_number %>
           </td>
           <td>
-            <%= student.blurb %>
+            <%= student.cte_programs.order(:name).map(&:name).join(", ") %>
           </td>
           <td>
             <%= link_to popup_student_url(student), :target => 'student_popup' do %>
