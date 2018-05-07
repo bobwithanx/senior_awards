@@ -40,4 +40,11 @@ RailsAdmin.config do |config|
     # history_show
 
   end
+
+  config.model 'Student' do
+    object_label_method do
+      :custom_label_method
+    end
+  end
+
 end

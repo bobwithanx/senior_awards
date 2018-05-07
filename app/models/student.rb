@@ -5,4 +5,8 @@ class Student < ApplicationRecord
   has_and_belongs_to_many :cte_programs
   has_and_belongs_to_many :scholarships
   has_and_belongs_to_many :future_plans
+
+  def custom_label_method
+    "#{firstname} #{lastname} (#{id_number})"
+  end
 end
