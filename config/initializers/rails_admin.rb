@@ -23,28 +23,67 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
-  config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
-    new
-    export
-    bulk_delete
-    show
-    edit
-    delete
-    show_in_app
+    config.actions do
+      dashboard                     # mandatory
+      index                         # mandatory
+      new
+      export
+      bulk_delete
+      show
+      edit
+      delete
+      show_in_app
 
-    import
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
+      import
+      ## With an audit adapter, you can add:
+      # history_index
+      # history_show
 
-  end
+    end
+
+    config.excluded_models << "Club"
+    config.excluded_models << "FuturePlan"
+
+    config.model 'Scholarship' do
+      list do
+        sort_by :name
+        field :name do
+          sort_reverse false
+        end
+        field :students
+      end
+    end
 
   config.model 'Student' do
     object_label_method do
       :custom_label_method
     end
-  end
+    list do
+      sort_by :lastname
+      field :lastname do
+        sort_reverse false
+      end
+      field :firstname
+      field :id_number
+      field :photo
+      field :cte_programs
+      field :scholarships
+      field :advisory
+      field :counselor
 
+      exclude_fields :future_plans, :clubs
+    end
+    create do
+      field :firstname
+      field :lastname
+      field :id_number
+      field :photo
+      field :cte_programs
+      field :scholarships
+      field :advisory
+      field :counselor
+
+      exclude_fields :future_plans, :clubs
+    end
+  end
 end
