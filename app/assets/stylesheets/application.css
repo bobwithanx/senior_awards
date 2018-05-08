@@ -19,3 +19,5 @@
  */
 
 @import "bulma";
+@import "dataTables.bulma.min.css";
+@import "font-awesome";

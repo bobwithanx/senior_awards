@@ -7,6 +7,9 @@ end
 
 gem "bulma-rails", "~> 0.6.2"
 gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.0.6'
+gem 'jquery-datatables-rails'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'rails_admin', '~> 1.3'
 gem "rails_admin_import", "~> 2.1"
 

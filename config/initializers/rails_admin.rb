@@ -62,24 +62,42 @@ RailsAdmin.config do |config|
       sort_by :lastname
       field :lastname do
         sort_reverse false
+        label "Last Name"
       end
-      field :firstname
-      field :id_number
+      field :firstname do
+        label "First Name"
+      end
+      field :id_number do
+        label "ID #"
+      end
       field :photo
-      field :cte_programs
+      field :cte_programs do
+        label "CTE program"
+      end
       field :scholarships
+      field :queued_at
       field :advisory
       field :counselor
 
       exclude_fields :future_plans, :clubs
     end
     create do
-      field :firstname
-      field :lastname
-      field :id_number
+      field :lastname do
+        label "Last Name"
+      end
+      field :firstname do
+        label "First Name"
+      end
+      field :id_number do
+        label "ID #"
+      end
       field :photo
-      field :cte_programs
+      field :cte_programs do
+        label "CTE program"
+      end
+      field :photo
       field :scholarships
+      field :queued_at
       field :advisory
       field :counselor
 

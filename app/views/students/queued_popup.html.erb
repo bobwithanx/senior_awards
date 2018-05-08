@@ -52,8 +52,16 @@
     </div>
     </divdiv>
   </div>
-  <%= link_to("Previous", popup_student_url(@student.previous), :id => 'previous') if @student.previous %>
-    <%= link_to("Next", popup_student_url(@student.next), :id => 'next') if @student.next %>
+  <% if @student.previous_queued %>
+    <%= link_to("Previous", queued_popup_student_url(@student.previous_queued), :id => 'previous-queued') %>
+      <% else %>
+        <%= link_to("Previous", queued_popup_student_url(@student), :id => 'previous-queued') %>
+          <% end %>
+            <% if @student.next_queued %>
+              <%= link_to("Next", queued_popup_student_url(@student.next_queued), :id => 'next-queued')  %>
+                <% else %>
+                  <span id="next-queued"></span>
+                  <% end %>
 </section>
 
 <script>
@@ -62,17 +70,16 @@
     switch (evt.keyCode) {
       case 37:
         // leftArrowPressed();
-        location.href = $('#previous').attr('href');
-        break;
+        if ($('#previous-queued').is("a")) {
+          location.href = $('#previous-queued').attr('href');
+          break;
+        }
       case 39:
         //rightArrowPressed();
-        location.href = $('#next').attr('href');
-        break;
+        if ($('#next-queued').is("a")) {
+          location.href = $('#next-queued').attr('href');
+          break;
+        }
     }
   };
-
-  <%# $('.scholarship-list li').flowtype({
-    minFont: 44,
-    maxFont: 80
-  }); %>
 </script>

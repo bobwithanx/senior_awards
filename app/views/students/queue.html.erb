@@ -15,9 +15,6 @@
           </div>
           <div class="level-right">
             <div class="level-item">
-              <%= link_to 'Queue', queue_students_path %>
-            </div>
-            <div class="level-item">
               <%= link_to 'Admin', rails_admin_path, :target => '_admin' %>
             </div>
           </div>
@@ -60,8 +57,8 @@
                             <%= fa_icon 'external-link' %>
                               <% end %>
                                 |
-                                <%= link_to popup_student_url(student), :target => 'student_popup' do %>
-                                  Show
+                                <%= link_to queued_popup_student_url(student), :target => 'queued_student_popup' do %>
+                                  Present
                                   <%= fa_icon 'external-link' %>
                                     <% end %>
               </td>
