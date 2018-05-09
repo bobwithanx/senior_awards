@@ -14,7 +14,6 @@
 //= require jquery-3.3.1.min.js
 //= require jquery.dataTables.js
 //= require dataTables.bulma.js
-//= require flowtype.js
 
 //= require rails-ujs
 //= require turbolinks

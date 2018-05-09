@@ -18,6 +18,6 @@
  *= require font-awesome
  */
 
-@import "bulma";
+@import "bulma.min.css";
 @import "dataTables.bulma.min.css";
-@import "font-awesome";
+@import "fontawesome-all.min.css";

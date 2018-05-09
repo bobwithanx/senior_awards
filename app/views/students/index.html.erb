@@ -6,80 +6,62 @@
         <%= raw(message) %>
       </div>
       <% end %>
+  </div>
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <h1 class="title">Senior Awards System</h1>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <%= link_to 'Admin', rails_admin_path, :target => '_admin' %>
+      </div>
+    </div>
+  </div>
 
-        <div class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <h1 class="title"> Senior Awards System</h1>
-            </div>
-          </div>
-          <div class="level-right">
-            <div class="level-item">
-              <%= link_to 'Queue', queue_students_path %>
-            </div>
-            <div class="level-item">
-              <%= link_to 'Admin', rails_admin_path, :target => '_admin' %>
-            </div>
-          </div>
-        </div>
-        <table id="student-list" class="table is-hoverable">
-          <thead>
-            <tr>
-              <th>ID Number</th>
-              <th>First</th>
-              <th>Last</th>
-              <th class="column_cte">CTE Program</th>
-              <th></th>
-            </tr>
-          </thead>
-          <% @students.each do |student| %>
-            <tr>
-              <td>
-                <%= student.id_number %>
-              </td>
+  <table id="student-list" class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>ID Number</th>
+        <th>First</th>
+        <th>Last</th>
+        <th class="column_cte">CTE Program</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @students.each do |student| %>
+      <tr>
+        <td>
+          <%= student.id_number %>
+        </td>
 
-              <td>
-                <%= student.firstname %>
-              </td>
-              <td>
-                <%= student.lastname %>
-              </td>
-              <td class="column_cte">
-                <%= student.cte_programs.order(:name).map(&:name).join(", ") %>
-              </td>
-              <td>
-                <% unless student.queued_at.blank? %>
-                  <%= link_to dequeue_student_url(student), method: :post do %>
-                    Dequeue
-                    <%= fa_icon 'external-link' %>
-                      <% end %>
-                        |
-                        <% end %>
-                          <%= link_to enqueue_student_url(student), method: :post do %>
-                            Queue
-                            <%= fa_icon 'external-link' %>
-                              <% end %>
-                                |
-                                <%= link_to popup_student_url(student), :target => 'student_popup' do %>
-                                  Show
-                                  <%= fa_icon 'external-link' %>
-                                    <% end %>
-              </td>
-            </tr>
-            <% end %>
-        </table>
+        <td>
+          <%= student.firstname %>
+        </td>
+        <td>
+          <%= student.lastname %>
+        </td>
+        <td class="column_cte">
+          <%= student.cte_programs.order(:name).map(&:name).join(", ") %>
+        </td>
+        <td>
+          <%= link_to popup_student_url(student), :target => 'student_popup' do %>
+            Show
+            <%= fa_icon 'external-link' %>
+              <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </table>
   </div>
 </section>
-
 <script>
   $('#student-list').DataTable({
     paging: true,
     order: [
       [
         0, "asc"
-      ],
-      [
-        2, "asc"
       ]
     ],
 

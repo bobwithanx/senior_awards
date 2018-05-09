@@ -2,6 +2,10 @@
   background-color: unset !important;
 }
 
+.dataTables_wrapper {
+  display: block;
+}
+
 #popup .hero-body {
   align-items: initial;
   justify-content: center;
