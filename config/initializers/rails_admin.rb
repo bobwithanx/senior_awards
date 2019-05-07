@@ -22,6 +22,7 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+    config.default_items_per_page = 150
 
     config.actions do
       dashboard                     # mandatory
@@ -43,6 +44,8 @@ RailsAdmin.config do |config|
 
     config.excluded_models << "Club"
     config.excluded_models << "FuturePlan"
+    config.excluded_models << "Advisory"
+    config.excluded_models << "Counselor"
 
     config.model 'Scholarship' do
       list do
@@ -76,10 +79,8 @@ RailsAdmin.config do |config|
       end
       field :scholarships
       field :queued_at
-      field :advisory
-      field :counselor
 
-      exclude_fields :future_plans, :clubs
+      exclude_fields :future_plans, :clubs, :advisory, :counselor
     end
     create do
       field :lastname do
@@ -98,10 +99,8 @@ RailsAdmin.config do |config|
       field :photo
       field :scholarships
       field :queued_at
-      field :advisory
-      field :counselor
 
-      exclude_fields :future_plans, :clubs
+      exclude_fields :future_plans, :clubs, :advisory, :counselor
     end
   end
 end
