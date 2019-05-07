@@ -91,6 +91,11 @@ div {
   animation: reveal 3s;
 }
 
+#popup .transition-start * {
+  /* width: 0px; */
+  animation: reveal 3s;
+}
+
 #popup .transition-first * {
   /* width: 0px; */
   animation: reveal-mid 3s;

@@ -4,7 +4,7 @@
       <figure class="media-left">
         <% unless @student.photo.blank? %>
 
-          <div id="photo" class="transition image is-3by4">
+          <div id="photo" class="transition image">
             <%= display_image("photos/" + @student.photo) %>
           </div>
           <% end %>
@@ -12,22 +12,26 @@
 
       <div class="media-content">
         <div class="content">
-          <span class="transition-first">
+          <span class="transition-start">
             <h1 class="title">
               <%= @student.firstname %>
                 <%= @student.lastname %>
             </h1>
-            <h2 class="subtitle">
-              <% unless @student.blurb.blank? %>
-                <%= @student.blurb %>
+            </span>
+            <span class="transition-first">
+          <h2 class="subtitle">
+              <% @student.cte_programs.order(:name).each do |cte| %>
+                <%= cte.name %>
+                  <br>
                   <% end %>
-
-                    <% @student.cte_programs.order(:name).each do |cte| %>
-                      <%= cte.name %>
-                        <br>
-                        <% end %>
-            </h2>
-
+          </h2>
+          </span>
+          <span class="transition-second">
+          <h2 class="subtitle">
+            <% unless @student.blurb.blank? %>
+              <%= @student.blurb %>
+                <% end %>
+          </h2>
           </span>
         </div>
       </div>
