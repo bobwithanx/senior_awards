@@ -7,11 +7,11 @@ class Student < ApplicationRecord
   has_and_belongs_to_many :future_plans
 
   def previous
-    Student.where(["id < ?", id]).order(id: :desc).first
+    Student.where(["id < ?", id]).order(id: :desc).first || Student.last
   end
 
   def next
-    Student.where(["id > ?", id]).order(:id).first
+    Student.where(["id > ?", id]).order(:id).first || Student.first
   end
 
   def previous_queued
